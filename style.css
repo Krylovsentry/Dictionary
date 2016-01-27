@@ -2,6 +2,7 @@
 body{
 
 
+    font-family: 'Merienda One', cursive;;
     text-align: center;
     background-color: #E3E7B3;
 
@@ -26,10 +27,79 @@ table{
 
 
 }
+tr:nth-child(even){
+
+     background-color: #F7EEBB;
+}
+tr:hover:nth-child(even){
+
+    background-color: #EBEBCD;
+}
+
+
+
 th{
     border: 1px solid #D77948;
+    border-radius: 5%;
 }
 
 td {
     border: 1px solid #D77948;
+    border-radius: 5%;
+}
+
+input{
+
+
+    font-size: 20px;
+    text-align: center;
+
+}
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+button{
+    position: relative;
+
+    padding: 0;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    background-color: #e67e22;
+    color: #ecf0f1;
+    transition: background-color .3s;
+}
+
+button:hover, button:focus {
+    background-color: #d35400;
+}
+button > * {
+    position: relative;
+}
+button span {
+    display: block;
+    padding: 12px 24px;
+}
+button:before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    transform: translate(-50%, -50%);
+}
+button:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
 }
