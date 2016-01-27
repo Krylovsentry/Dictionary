@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.2/themes/overcast/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+</head>
+
+<script>
+    /*
+
+     Perform all code on page ready $(document).ready(…)
+     Make an input field item count to enter count of words to display (only digits)
+     Highlight row on mouse over
+     Make a zebra highlighting in the table
+     Remove row by clicking item number
+     Navigate to google translate by clicking item name (window.location)
+     */
+    $(document).ready(function(){
+
+        var arr;
+        var url = 'https://public.opencpu.org/ocpu/';
+
+
+
+
+        $.ajax({
+            type:'GET',
+            url: url + '/library/',
+            data:'{}',
+            contentType: 'Content-Type: text/html; charset=utf-8',
+            success :function(data){
+
+                arr = data.split('\n');
+
+            },
+
+            error:function(){
+
+                alert('Something goes wrong!')
+            }
+
+
+        });
+
+
+
+        $('#load').click(function(){
+
+
+            $('tr').remove();
+            var th = jQuery("<tr>" +
+                    "<th>ID</th>" +
+                    "<th>Name</th>" + "</tr>");
+
+            $('#table').append(th);
+            event.preventDefault();
+            for (var i in arr){
+
+
+                if (i == $('#input_field').val()){
+
+                    break;
+                }
+
+                var row = jQuery("<tr>" +
+                        "<td>" + (Number(i)+1) + "</td>" +
+                        "<td>" + arr[i] + "</td>" + "</tr>");
+
+                $('#table').append(row);
+
+            }
+
+
+        });
+
+
+
+
+
+    })
+
+
+</script>
+
+
+<body>
+
+<h1>Dictionary</h1>
+
+<form>
+<button id="load">Load</button>
+<input id="input_field" type="number" placeholder="Amount">
+</form>
+<br>
+
+<table id="table">
+
+    <th>ID</th>
+    <th>Name</th>
+
+</table>
+
+
+</body>
+</html>

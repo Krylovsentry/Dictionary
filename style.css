@@ -1,0 +1,33 @@
+
+body{
+
+
+    text-align: center;
+    background-color: #E3E7B3;
+
+
+
+}
+
+
+tr:hover{
+
+
+
+
+}
+
+table{
+
+    width: 100%;
+
+
+
+}
+th{
+    border: 1px solid #D77948;
+}
+
+td {
+    border: 1px solid #D77948;
+}
