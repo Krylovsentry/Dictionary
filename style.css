@@ -12,9 +12,11 @@ body{
 
 tr:hover{
 
+    background-color: #F6FFE2;
+}
+td:hover{
 
-
-
+    background-color: #D77948;
 }
 
 table{
